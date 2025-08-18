@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhruv Tangri - Data Scientist</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4a5568;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Profile Image */
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 2rem;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main Content */
+        .main-content {
+            background: white;
+            margin: -50px 20px 0;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .section {
+            padding: 3rem 3rem;
+        }
+
+        .section:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* Experience Cards */
+        .experience-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2d3748;
+        }
+
+        .company {
+            font-size: 1.1rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .duration {
+            color: #718096;
+            font-weight: 500;
+            background: #edf2f7;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .job-description {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .job-description li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.7;
+        }
+
+        .job-description li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 0.8rem;
+        }
+
+        /* Project Cards */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-duration {
+            color: #718096;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            line-height: 1.7;
+            color: #4a5568;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        .skill-category h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Awards Section */
+        .awards-list {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .award-item {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .award-item:hover {
+            transform: translateX(10px);
+        }
+
+        .award-icon {
+            font-size: 2rem;
+            color: #f6ad55;
+            min-width: 60px;
+        }
+
+        .award-text {
+            font-weight: 600;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        /* Education */
+        .education-item {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .degree {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2d3748;
+        }
+
+        .university {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .gpa {
+            background: #c6f6d5;
+            color: #22543d;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .main-content {
+                margin: -30px 10px 0;
+            }
+
+            .section {
+                padding: 2rem 1.5rem;
+            }
+
+            .job-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .award-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">Dhruv Tangri</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#awards">Awards</a></li>
+                    <li><a href="#education">Education</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <!-- Add your profile image here -->
+                <img src="images/profile.jpg" alt="Dhruv Tangri" class="profile-image">
+                
+                <h1>Dhruv Tangri</h1>
+                <p class="subtitle">Data Scientist with 4 years of industry experience delivering impactful analytics, automation, and machine learning solutions</p>
+                
+                <div class="contact-info">
+                    <a href="mailto:dhruv1998tangri@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        dhruv1998tangri@gmail.com
+                    </a>
+                    <a href="tel:+14122848382" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        (412) 284-8382
+                    </a>
+                    <a href="#" class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <a href="#" class="contact-item">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+
+                <a href="#about" class="btn">Explore My Work</a>
+            </div>
+        </section>
+
+        <div class="main-content">
+            <section id="about" class="section">
+                <h2>About Me</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #4a5568;">
+                    I'm a passionate Data Scientist with 4 years of industry experience at KPMG, specializing in delivering impactful analytics, automation, and machine learning solutions across financial services, audit, and cybersecurity domains. Currently pursuing my Master's in Information Systems Management at Carnegie Mellon University's Heinz College, I'm proficient in Python, SQL, Java, REST APIs, Docker, Alteryx, and Statistics.
+                </p>
+            </section>
+
+            <section id="experience" class="section">
+                <h2>Professional Experience</h2>
+                
+                <div class="experience-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Data Scientist Consultant</div>
+                            <div class="company">KPMG</div>
+                        </div>
+                        <div class="duration">October 2020 - August 2024</div>
+                    </div>
+                    <ul class="job-description">
+                        <li>Improved anomaly detection accuracy to 90% by developing an AI audit tool using NLP and Isolation Forest; visualized flagged transactions via Power BI dashboard supporting real-time decision-making in financial audits</li>
+                        <li>Led cross-functional automation of ticketing system for the risk management team in investment banking, integrating BPMN, Alteryx, and CRM systems using python and REST APIs; reduced manual workload and approval delays by 95%</li>
+                        <li>Developed logical data models to increase reporting efficiency and business agility by designing a self-service solution for a life insurance client; analyzed 900+ reports to build logical data models that reduced manual reporting workload by 80%</li>
+                        <li>Enhanced audit scope and reduced financial risk exposure by 70% by implementing Alteryx workflows that utilized 100% of audit data, enabling automation of procedures previously infeasible through manual analysis</li>
+                        <li>Optimized complex SQL stored procedures to efficiently extract large-scale audit journal entry data, enhancing query performance and reducing report generation time by 60%</li>
+                        <li>Reduced breach response time by 80% by co-developing a Python-based cybersecurity tool leveraging GitHub APIs to detect sensitive data leaks, applying logistic regression and random forest to automate threat classification</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="projects" class="section">
+                <h2>Featured Projects</h2>
+                
+                <div class="project-grid">
+                    <div class="project-card">
+                        <!-- Optional: Add project image -->
+                        <img src="images/reghealth-project.jpg" alt="RegHealth Navigator" class="project-image">
+                        <div class="project-title">RegHealth Navigator</div>
+                        <div class="project-duration">May 2025 - July 2025</div>
+                        <div class="project-description">
+                            Developed a full-stack web application using React and Flask to help healthcare professionals analyze complex Medicare regulations, implementing semantic search with FAISS indexing and AI-powered document comparison capabilities. Built an incremental data processing system that reduced processing costs by 80% through intelligent caching.
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <!-- Optional: Add project image -->
+                        <img src="images/text-to-video-project.jpg" alt="Text to Video Generation" class="project-image">
+                        <div class="project-title">Text to Video Generation</div>
+                        <div class="project-duration">January 2025 - March 2025</div>
+                        <div class="project-description">
+                            Engineered a text-to-video generator leveraging Vertex AI and Large Language Models to automatically convert textual descriptions into coherent video content. Optimized system performance through sophisticated prompt engineering techniques and Retrieval-Augmented Generation (RAG).
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <!-- Optional: Add project image -->
+                        <img src="images/neural-architecture-project.jpg" alt="Neural Architecture Search" class="project-image">
+                        <div class="project-title">Reinforcement Learning-based Neural Architecture Search</div>
+                        <div class="project-duration">January 2025 - July 2025</div>
+                        <div class="project-description">
+                            Deep-learning research project for DeepFake Voice Detection using NAS with an RL-based reward system. The model uses PPO (Proximal Policy Optimization) to explore the search space and DARTS (Differentiable Architecture Search) to find the best-performing architectures on the ASVspoof 2019 dataset.
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <!-- Optional: Add project image -->
+                        <img src="images/movie-recommendation-project.jpg" alt="Movie Recommendation System" class="project-image">
+                        <div class="project-title">Movie Recommendation System [MLOps]</div>
+                        <div class="project-duration">January 2025 - April 2025</div>
+                        <div class="project-description">
+                            Built a large-scale MLOps system processing data for 1 million users and 27,000 movies from Kafka (~50k logs/min). Established a CI/CD pipeline using Docker and Kubernetes, maintaining throughput of 10k+tpm and latency of <700ms with 99% availability.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="section">
+                <h2>Technical Skills</h2>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-database"></i> Databases</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">Redis</span>
+                            <span class="skill-tag">Neo4j</span>
+                            <span class="skill-tag">Cassandra</span>
+                            <span class="skill-tag">FAISS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-chart-bar"></i> Data Processing & Analytics</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Apache Spark</span>
+                            <span class="skill-tag">Hadoop</span>
+                            <span class="skill-tag">Tableau</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">Scikit-learn</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Deep Learning</span>
+                            <span class="skill-tag">NLP</span>
+                            <span class="skill-tag">Neural Networks</span>
+                            <span class="skill-tag">Regression</span>
+                            <span class="skill-tag">Clustering</span>
+                            <span class="skill-tag">Random Forest</span>
+                            <span class="skill-tag">LLMs</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="awards" class="section">
+                <h2>Awards & Achievements</h2>
+                
+                <div class="awards-list">
+                    <div class="award-item">
+                        <div class="award-icon"><i class="fas fa-trophy"></i></div>
+                        <div class="award-text">Awarded <strong>Above and Beyond Award</strong> by KPMG for my work on AI/ML Tool for Audit</div>
+                    </div>
+
+                    <div class="award-item">
+                        <div class="award-icon"><i class="fas fa-medal"></i></div>
+                        <div class="award-text">Member of <strong>Dean's List</strong> for highest distinction during Masters</div>
+                    </div>
+
+                    <div class="award-item">
+                        <div class="award-icon"><i class="fas fa-award"></i></div>
+                        <div class="award-text"><strong>Won Goldman Sachs Alteryx Hackathon</strong> conducted by Operational Risk and Resilience Team</div>
+                    </div>
+
+                    <div class="award-item">
+                        <div class="award-icon"><i class="fas fa-star"></i></div>
+                        <div class="award-text">Participated and came in <strong>2nd place in Student IronViz Challenge</strong> conducted by CMU Data Analytics Society</div>
+                    </div>
+
+                    <div class="award-item">
+                        <div class="award-icon"><i class="fas fa-users"></i></div>
+                        <div class="award-text">Served as <strong>Project Manager</strong> for Master's capstone project, overseeing deliverables, team dynamics, and client communications</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education" class="section">
+                <h2>Education</h2>
+                
+                <div class="education-item">
+                    <div class="education-header">
+                        <div>
+                            <div class="degree">Master of Information Systems Management</div>
+                            <div class="university">Carnegie Mellon University, Heinz College</div>
+                            <div style="color: #718096; margin-top: 0.5rem;">Business Intelligence and Data Analytics</div>
+                        </div>
+                        <div>
+                            <div class="gpa">GPA: 3.96</div>
+                            <div style="color: #718096; margin-top: 0.5rem; text-align: right;">August 2024 - August 2025</div>
+                        </div>
+                    </div>
+                    <p style="color: #4a5568; line-height: 1.6;">
+                        <strong>Coursework:</strong> Distributed Systems, Machine Learning for Problem Solving, NoSQL Database Management, Data Structures and Algorithms, Deep Learning
+                    </p>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-header">
+                        <div>
+                            <div class="degree">Bachelor of Engineering - Mechanical Engineering</div>
+                            <div class="university">Vellore Institute of Technology</div>
+                        </div>
+                        <div>
+                            <div class="gpa">GPA: 3.97</div>
+                            <div style="color: #718096; margin-top: 0.5rem; text-align: right;">July 2016 - July 2020</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Dhruv Tangri. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
