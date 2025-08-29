@@ -276,6 +276,60 @@
             margin-bottom: 1rem;
         }
 
+        .project-icon {
+            font-size: 3rem;
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .project-links {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #764ba2, #667eea);
+        }
+
+        .github-link {
+            background: linear-gradient(135deg, #24292e, #586069);
+        }
+
+        .github-link:hover {
+            background: linear-gradient(135deg, #586069, #24292e);
+            box-shadow: 0 5px 15px rgba(36, 41, 46, 0.4);
+        }
+
+        .youtube-link {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+        }
+
+        .youtube-link:hover {
+            background: linear-gradient(135deg, #cc0000, #ff0000);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+        }
+
         .project-title {
             font-size: 1.2rem;
             font-weight: 700;
@@ -487,7 +541,7 @@
         <section class="hero">
             <div class="container">
                 <!-- Add your profile image here -->
-                <img src="images/Profile.jpeg" alt="Dhruv Tangri" class="profile-image">
+                <img src="images/Profile.jpg" alt="Dhruv Tangri" class="profile-image">
                 
                 <h1>Dhruv Tangri</h1>
                 <p class="subtitle">Data Scientist with 4 years of industry experience delivering impactful analytics, automation, and machine learning solutions</p>
@@ -501,11 +555,11 @@
                         <i class="fas fa-phone"></i>
                         (412) 284-8382
                     </a>
-                    <a href="https://www.linkedin.com/in/dhruv-tangri-02540b138/" class="contact-item">
+                    <a href="#" class="contact-item">
                         <i class="fab fa-linkedin"></i>
                         LinkedIn
                     </a>
-                    <a href="https://github.com/TangriDhruv" class="contact-item">
+                    <a href="#" class="contact-item">
                         <i class="fab fa-github"></i>
                         GitHub
                     </a>
@@ -550,42 +604,65 @@
                 
                 <div class="project-grid">
                     <div class="project-card">
-                        <!-- Optional: Add project image -->
-                        <img src="images/reghealth-project.jpg" alt="RegHealth Navigator" class="project-image">
+                        <!-- Project Icon -->
+                        <div class="project-icon">🏥</div>
                         <div class="project-title">RegHealth Navigator</div>
                         <div class="project-duration">May 2025 - July 2025</div>
                         <div class="project-description">
                             Developed a full-stack web application using React and Flask to help healthcare professionals analyze complex Medicare regulations, implementing semantic search with FAISS indexing and AI-powered document comparison capabilities. Built an incremental data processing system that reduced processing costs by 80% through intelligent caching.
                         </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TangriDhruv/RegHealth-Navigator" target="_blank" class="project-link github-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
                     </div>
 
                     <div class="project-card">
-                        <!-- Optional: Add project image -->
-                        <img src="images/text-to-video-project.jpg" alt="Text to Video Generation" class="project-image">
+                        <!-- Project Icon -->
+                        <div class="project-icon">🎬</div>
                         <div class="project-title">Text to Video Generation</div>
                         <div class="project-duration">January 2025 - March 2025</div>
                         <div class="project-description">
                             Engineered a text-to-video generator leveraging Vertex AI and Large Language Models to automatically convert textual descriptions into coherent video content. Optimized system performance through sophisticated prompt engineering techniques and Retrieval-Augmented Generation (RAG).
                         </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TangriDhruv/VideoGeneration" target="_blank" class="project-link github-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
                     </div>
 
                     <div class="project-card">
-                        <!-- Optional: Add project image -->
-                        <img src="images/neural-architecture-project.jpg" alt="Neural Architecture Search" class="project-image">
+                        <!-- Project Icon -->
+                        <div class="project-icon">🧠</div>
                         <div class="project-title">Reinforcement Learning-based Neural Architecture Search</div>
                         <div class="project-duration">January 2025 - July 2025</div>
                         <div class="project-description">
                             Deep-learning research project for DeepFake Voice Detection using NAS with an RL-based reward system. The model uses PPO (Proximal Policy Optimization) to explore the search space and DARTS (Differentiable Architecture Search) to find the best-performing architectures on the ASVspoof 2019 dataset.
                         </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TangriDhruv/Deepfake-detection-Using-NAS" target="_blank" class="project-link github-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=sty1x56tiXk" target="_blank" class="project-link youtube-link">
+                                <i class="fab fa-youtube"></i> Demo
+                            </a>
+                        </div>
                     </div>
 
                     <div class="project-card">
-                        <!-- Optional: Add project image -->
-                        <img src="images/movie-recommendation-project.jpg" alt="Movie Recommendation System" class="project-image">
-                        <div class="project-title">Movie Recommendation System [MLOps]</div>
-                        <div class="project-duration">January 2025 - April 2025</div>
+                        <!-- Project Icon -->
+                        <div class="project-icon">🎫</div>
+                        <div class="project-title">TicketMaster Event Discovery System</div>
+                        <div class="project-duration">Distributed Systems Project</div>
                         <div class="project-description">
-                            Built a large-scale MLOps system processing data for 1 million users and 27,000 movies from Kafka (~50k logs/min). Established a CI/CD pipeline using Docker and Kubernetes, maintaining throughput of 10k+tpm and latency of <700ms with 99% availability.
+                            Built a comprehensive Android application with RESTful web service that helps users discover events using TicketMaster API. Features include category-based search, country filtering, real-time data fetching with OkHttp, and an analytics dashboard with MongoDB logging. Deployed via GitHub Codespaces with Docker, supporting 10+ concurrent users with sub-second response times.
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TangriDhruv/TicketMaster" target="_blank" class="project-link github-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
                         </div>
                     </div>
                 </div>
